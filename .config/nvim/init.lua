@@ -762,3 +762,4 @@ require('lazy').setup({
 
 require 'config/basic'
 require 'config/key'
+require 'plugins/term-runner'

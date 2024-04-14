@@ -85,4 +85,4 @@ augroup fileTypeIndent
 augroup END
 ]]
 
-vim.cmd.colorscheme 'molokaiCG'
+vim.cmd.colorscheme 'molokai'

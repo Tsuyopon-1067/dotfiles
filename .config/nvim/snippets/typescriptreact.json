@@ -1,0 +1,63 @@
+{
+	// Place your snippets for typescriptreact here. Each snippet is defined under a snippet name and has a prefix, body and
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+	// same ids are connected.
+	"Function component": {
+		"prefix": "funcomp",
+		"body": [
+			"import styles from \"./$TM_FILENAME_BASE.module.css\";",
+			"",
+			"function $TM_FILENAME_BASE() {",
+			"  return (",
+			"    <div>",
+			"      $0",
+			"    </div>",
+			"  );",
+			"}",
+			"",
+			"export default $TM_FILENAME_BASE;"
+		],
+		"description": "Create function component"
+	},
+	"Allow function component": {
+		"prefix": "alwcmp",
+		"body": [
+			"import styles from \"./$TM_FILENAME_BASE.module.css\";",
+			"",
+			"const $TM_FILENAME_BASE = () => {",
+			"  return (",
+			"    <div>",
+			"      $0",
+			"    </div>",
+			"  );",
+			"}",
+			"",
+			"export default $TM_FILENAME_BASE;"
+		],
+		"description": "Create allow function component"
+	},
+	"interface": {
+		"prefix": "interface",
+		"body": [
+			"interface ${1:name} {",
+			"  $0",
+			"}"
+		],
+		"description": "Create interface"
+	},
+	"css modulle": {
+		"prefix": "cssmod",
+		"body": [
+			"import styles from \"./$TM_FILENAME_BASE.module.css\";"
+		],
+		"description": "Import css module"
+	},
+	"className": {
+		"prefix": "clsname",
+		"body": [
+			"className={styles.${1:className}}"
+		],
+		"description": "insert className"
+	},
+}

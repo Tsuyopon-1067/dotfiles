@@ -1,0 +1,9 @@
+{
+	"insert image": {
+		"prefix": "img",
+		"body": [
+			![${1:caption}](${2:url})
+		],
+		"description": "Insert image"
+	}
+}

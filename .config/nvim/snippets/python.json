@@ -1,0 +1,78 @@
+{
+    "scani": {
+        "prefix": "scani",
+        "body": ["${1:n} = int(input())${0:}"]
+    },
+    "scanii": {
+        "prefix": "scanii",
+        "body": ["${1:a}, ${2:b}${0:} = map(int, input().split())${0:}"]
+    },
+    "scaniii": {
+        "prefix": "scaniii",
+        "body": ["${1:a}, ${2:b}, ${3:c}${0:} = map(int, input().split())${0:}"]
+    },
+    "scanf": {
+        "prefix": "scanf",
+        "body": ["${1:x} = float(input())${0:}"]
+    },
+    "scanff": {
+        "prefix": "scanff",
+        "body": ["${1:a}, ${2:b}${0:} = map(float, input().split())${0:}"]
+    },
+    "scans": {
+        "prefix": "scans",
+        "body": ["${1:s} = input()${0:}"]
+    },
+    "scanss": {
+        "prefix": "scanss",
+        "body": ["${1:a}, ${2:b}${0:} = input().split()${0:}"]
+    },
+    "scanveci": {
+        "prefix": "scanveci",
+        "body": ["${1:a} = list(map(int, input().split()))${0:}"]
+    },
+    "scanvecf": {
+        "prefix": "scanvecf",
+        "body": ["${1:a} = list(map(float, input().split()))${0:}"]
+    },
+    "scanvecs": {
+        "prefix": "scanvecs",
+        "body": ["${1:s} = input().split${0:}"]
+    },
+    "scanmati": {
+        "prefix": "scanmati",
+        "body": [
+            "${1:a} = [list(map(int, input().split())) for _ in range(${2:n})]${0:}"
+        ]
+    },
+    "scanmatf": {
+        "prefix": "scanmatf",
+        "body": [
+            "${1:a} = [list(map(float, input().split())) for _ in range(${2:n})]${0:}"
+        ]
+    },
+    "scanmats": {
+        "prefix": "scanmats",
+        "body": ["${1:a} = [input().split() for _ in range(${2:n})]${0:}"]
+    },
+    "if": {
+        "prefix": "if",
+        "body": ["if ${1:condition}:", "\t${0:}"]
+    },
+    "elif": {
+        "prefix": "elif",
+        "body": ["elif ${1:condition}:", "\t${0:}"]
+    },
+    "else": {
+        "prefix": "else",
+        "body": ["else :", "\t${0:}"]
+    },
+    "def": {
+        "prefix": "def",
+        "body": ["def ${1:name}(${2:}):", "\t${0:}"]
+    },
+    "lst": {
+        "prefix": "lst",
+        "body": ["${1:lst} = [${2:0}]*(${3:n})${0:}"]
+    }
+}

@@ -735,6 +735,9 @@ require('lazy').setup({
       { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Open or close the tree. Takes an optional path argument.' },
     },
   },
+  {
+    'github/copilot.vim',
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

@@ -25,6 +25,8 @@ elseif ext == 'go' then
   ex = './' .. vim.fn.expand '%:r'
 elseif ext == 'py' then
   ex = 'python3 ' .. vim.fn.expand '%:p'
+elseif ext == 'lua' then
+  ex = 'lua ' .. vim.fn.expand '%:p'
 elseif ext == 'rs' then
   ex = 'cd ../&&cargo run --bin ' .. vim.fn.expand '%:r'
 elseif ext == 'js' then
@@ -34,7 +36,7 @@ end
 function TermRunnerRun()
   local filename = vim.fn.expand '%:t'
   local extension = filename:match '^.+%.(.+)$'
-  local supported_extensions = { 'cpp', 'c', 'java', 'go', 'python', 'rs', 'javascript' }
+  local supported_extensions = { 'cpp', 'c', 'java', 'go', 'python', 'rs', 'javascript', 'lua' }
   if not vim.tbl_contains(supported_extensions, extension) then
     return
   end

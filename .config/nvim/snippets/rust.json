@@ -1,0 +1,69 @@
+{
+	"input": {
+		"prefix": "input",
+		"body": [
+			"proconio::input! {",
+			"\t${n}: ${i64},",
+			"}"
+		],
+		"description": "input macro"
+	},
+	"for loop": {
+		"prefix": "for",
+		"body": [
+			"for ${1:i} in 0..${2:n} {",
+			"\t${0}",
+			"}"
+		],
+		"description": "for loop n times"
+	},
+	"for each": {
+		"prefix": "fore",
+		"body": [
+			"for ${1:v} in $2{2:list}.iter() {",
+			"\t${0}",
+			"}"
+		],
+		"description": "for each"
+	},
+	"new HashMap": {
+		"prefix": "nhash",
+		"body": [
+			"let mut ${1:map} = HashMap::new();${0}"
+		],
+		"description": "new HashMap"
+	},
+	"existence from HashMap": {
+		"prefix": "existmap",
+		"body": [
+			"match ${1:map}.entry(c) {",
+			"\tstd::collections::hash_map::Entry::Occupied(mut entry) => {",
+			"\t\t// get entry.get()",
+			"\t\t}",
+			"\t}",
+			"std::collections::hash_map::Entry::Vacant(entry) => {",
+			"\t",
+			"}"
+		],
+		"description": "verify the existence from HashMap"
+	},
+	"vec max": {
+		"prefix": "vecmax",
+		"body": [
+			"if let Some(max_value) = ${1:list}.iter().max() {",
+			"println!(\"{}\", max_value);",
+			"}"
+		],
+		"description": "get max value from Vec"
+	},
+	"Point struct": {
+		"prefix": "pointstr",
+		"body": [
+			"struct Point {",
+			"\tx: i64,",
+			"\ty: i64,",
+			"}"
+		],
+		"description": "get min value from Vec"
+	}
+}

@@ -153,8 +153,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 atcargo()
 {
 	cargo new $1
-	mkdir -p $1/src/bin
-	cd $1/src/bin
+	cd $1
+	echo 'proconio = "0.4.1"' >> Cargo.toml
+	mkdir -p src/bin
+	cd src/bin
 	create_rs_file a.rs
 	create_rs_file b.rs
 	create_rs_file c.rs

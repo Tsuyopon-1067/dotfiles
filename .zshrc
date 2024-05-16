@@ -170,3 +170,26 @@ create_rs_file() {
 	echo 'fn main() {' >> $1
 	echo '}' >> $1
 }
+
+oboe() {
+	echo 'w3m'
+}
+
+alias w3mg="w3m https://www.google.com/"
+
+gitpon() {
+	git clone git@github.com:tsuyopon-1067/$1.git
+}
+
+# git-prompt
+source ~/.zsh/git-prompt.sh
+
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUPSTREAM=auto
+
+setopt PROMPT_SUBST ; PS1='%F{green}%n%f %F{cyan}($(arch))%f: %F{cyan}%~%f %F{red}$(__git_ps1 "(%s)")%f
+%# '
+
+#PROMPT="%F{green}%n%f %F{cyan}($(arch))%f:%F{blue}%~%f"$'\n'"%# "

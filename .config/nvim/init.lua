@@ -596,6 +596,11 @@ require('lazy').setup({
           ['<C-k>'] = cmp.mapping(function(fallback)
             if luasnip.expand_or_jumpable() then
               luasnip.expand_or_jump()
+            elseif cmp.visible() then
+              cmp.select_next_item()
+              cmp.select_prev_item()
+              cmp.mapping.confirm { select = true }
+              --luasnip.expand_or_jump()
             else
               fallback()
             end
@@ -747,9 +752,6 @@ require('lazy').setup({
   {
     'dinhhuy258/git.nvim',
     config = true,
-  },
-  {
-    'lewis6991/gitsigns.nvim',
   },
 }, {
   ui = {

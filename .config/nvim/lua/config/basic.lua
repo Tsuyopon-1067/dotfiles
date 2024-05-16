@@ -17,7 +17,7 @@ vim.o.hidden = true
 vim.o.showcmd = true
 
 -- 行番号を表示
-vim.wo.number = true
+vim.wo.relativenumber = true
 
 -- 現在の行を強調表示
 vim.wo.cursorline = true
@@ -78,11 +78,11 @@ vim.o.shiftwidth = 4
 vim.cmd [[
 augroup fileTypeIndent
     autocmd!
-    autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
-    autocmd BufNewFile,BufRead *.py set noexpandtab
     autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.rb set noexpandtab
 augroup END
 ]]
+-- autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+-- autocmd BufNewFile,BufRead *.py set noexpandtab
 
 vim.cmd.colorscheme 'molokai'

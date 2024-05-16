@@ -7,9 +7,108 @@
 			"import \"fmt\"",
 			"",
 			"func main() {",
-			"fmt.Printf(\"Hello World\\n\")",
+			"\tfmt.Printf(\"Hello World\\n\")",
 			"}"
 		],
 		"description": "Log output to console"
+	},
+	"main function": {
+		"prefix": "main",
+		"body": [
+			"package main",
+			"",
+			"import \"fmt\"",
+			"",
+			"func main() {",
+			"\t${0}",
+			"}"
+		],
+		"description": "Log output to console"
+	},
+	"Simple HTTP Server": {
+		"prefix": "httpcode",
+		"body": [
+			"package main",
+			"",
+			"import (",
+			"\t\"fmt\"",
+			"\t\"net/http\"",
+			")",
+			"",
+			"func main() {",
+			"\thttp.HandleFunc(\"/${1:hoge}\", func(w http.ResponseWriter, r *http.Request) {",
+			"\t\tw.Header().Set(\"Access-Control-Allow-Origin\", \"*\") // CORS",
+			"\t\tw.Header().Set(\"Access-Control-Allow-Methods\", \"GET\")",
+			"\t\tw.Header().Set(\"Access-Control-Allow-Headers\", \"Content-Type\")",
+			"\t",
+			"\t\tif r.Method == http.MethodOptions {",
+			"\t\t\treturn",
+			"\t\t}",
+			"\t",
+			"\t\tif r.Method != http.MethodGet {",
+			"\t\t\thttp.Error(w, \"Only GET method is allowed.\", http.StatusMethodNotAllowed)",
+			"\t\t\treturn",
+			"\t\t}",
+			"\t",
+			"\t\tfmt.Fprintf(w, \"hello world\")",
+			"\t})",
+			"",
+			"\tport := \"${2:8080}\"",
+			"\tfmt.Printf(\"server: http://localhost:%s/\\n\", port);",
+			"\tif err := http.ListenAndServe(\":\" + port, nil); err != nil {",
+			"\t\tfmt.Println(err)",
+			"\t}",
+			"}",
+			"${0}"
+		],
+		"description": "create simple http server"
+	},
+	"for roop": {
+		"prefix": "for",
+		"body": [
+			"for ${1:i} := ${2:0}; $1 <${3:} ${4:n}; $1++ {",
+			"\t${0}",
+			"}"
+		],
+		"description": "for roop"
+	},
+	"scani": {
+		"prefix": "scani",
+		"body": [
+			"var ${1:n} int",
+			"fmt.Scan(&$1)"
+		],
+		"description": "scan 1 int"
+	},
+	"scanii": {
+		"prefix": "scanii",
+		"body": [
+			"var ${1:a}, ${1:b} int",
+			"fmt.Scan(&$1, &$2)"
+		],
+		"description": "scan 2 int"
+	},
+	"scanvec": {
+		"prefix": "scanv",
+		"body": [
+			"${1:a} := make([]int, ${2:n})",
+			"for ${3:i} := 0; $3 < $2; $3++ {",
+			"\tfmt.Scanf(\"%d\", &$1[$3])",
+			"}"
+		],
+		"description": "scan []int"
+	},
+	"scanvecvec": {
+		"prefix": "scanvv",
+		"body": [
+			"${1:a} := make([][]int, ${2:n})",
+			"for ${3:i} := range $1 {",
+			"\t$1[$3] = make([]int, ${4:m})",
+			"\tfor ${5:j} := range $1[$3] {",
+			"\t\tfmt.Scanf(\"%d\", &$1[$3][$5])",
+			"\t}",
+			"}"
+		],
+		"description": "scan [][]int"
 	}
 }

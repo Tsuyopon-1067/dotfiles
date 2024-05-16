@@ -1,9 +1,44 @@
 {
+	"input i64x2": {
+		"prefix": "inputii",
+		"body": [
+			"proconio::input! {",
+			"\t${1:a}: i64,",
+			"\t${2:b}: i64,",
+			"}"
+		],
+		"description": "input macro"
+	},
+	"input String": {
+		"prefix": "inputs",
+		"body": [
+			"proconio::input! {",
+			"\t${1:s}: ${2:String},",
+			"}"
+		],
+		"description": "input macro"
+	},
 	"input": {
 		"prefix": "input",
 		"body": [
 			"proconio::input! {",
 			"\t${1:n}: ${2:i64},",
+			"}"
+		],
+		"description": "input macro"
+	},
+	"input vec": {
+		"prefix": "inputvec",
+		"body": [
+			"proconio::input! {",
+			"\t${1:len}: i64,",
+			"}",
+			"let mut ${2:vec} = vec![];",
+			"for _ in 0..$1 {",
+			"\tproconio::input! {",
+			"\t\ttmp: i64,",
+			"\t}",
+			"\t$2.push(tmp);",
 			"}"
 		],
 		"description": "input macro"
@@ -20,14 +55,14 @@
 	"for each": {
 		"prefix": "fore",
 		"body": [
-			"for ${1:v} in $2{2:list}.iter() {",
+			"for ${1:v} in ${2:list}.iter() {",
 			"\t${0}",
 			"}"
 		],
 		"description": "for each"
 	},
 	"new HashMap": {
-		"prefix": "nhash",
+		"prefix": "nmap",
 		"body": [
 			"let mut ${1:map} = HashMap::new();${0}"
 		],
@@ -79,5 +114,19 @@
 			"let ${1:str} = ${2:s}[${3:i}..${4:j}].to_string().clone();${0}"
 		],
 		"description": "new HashMap"
+	},
+	"string reverse": {
+		"prefix": "strrev",
+		"body": [
+			"${1:s}.chars().rev().collect: :<String>()"
+		],
+		"description": "reverse string"
+	},
+	"use std::collections::HashMap;": {
+		"prefix": "usemap",
+		"body": [
+			"use std::collections::HashMap;"
+		],
+		"description": "use HashMap"
 	}
 }

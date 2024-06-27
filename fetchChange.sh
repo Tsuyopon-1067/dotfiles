@@ -8,3 +8,5 @@ rm -rf .config/alacritty
 cp -a ~/.config/alacritty/ ./.config/alacritty/
 rm -rf .config/zellij/
 cp -a ~/.config/zellij/ ./.config/zellij/
+rm -f .p10k.zsh
+cp -a ~/.p10k.zsh ./.p10k.zsh

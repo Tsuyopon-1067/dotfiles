@@ -137,5 +137,14 @@
         "body": [
             "${1:a} = [list(map(int, input().split())) for _ in range(${2:n})]${0}"
         ]
+    },
+    "yes no": {
+        "prefix": "yesno",
+        "body": [
+            "if ${1:condition}:",
+            "\tprint('Yes')",
+            "else:",
+            "\tprint('No')"
+        ]
     }
 }

@@ -85,4 +85,4 @@ augroup END
 -- autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
 -- autocmd BufNewFile,BufRead *.py set noexpandtab
 
-vim.cmd.colorscheme 'molokai'
+-- vim.cmd.colorscheme 'molokai'

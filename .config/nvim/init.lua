@@ -753,6 +753,14 @@ require('lazy').setup({
     'dinhhuy258/git.nvim',
     config = true,
   },
+  {
+    'Tsuyopon-1067/deepwhite.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd [[colorscheme deepwhite]]
+    end,
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

@@ -288,7 +288,7 @@ themes {
  		orange "#D65D0E"
  	}
  	hogehoge {
- 		fg "#d8e3e6"
+ 		fg "#d8e3e6" // LOCKとかの背景
  		bg "#ff8888"
  		black "#A4BFA6"
  		red "#e590dc" // <>

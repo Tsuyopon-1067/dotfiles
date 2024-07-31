@@ -325,3 +325,11 @@ texinit() {
 			;;
 	esac
 }
+
+gitnewrepo() {
+	if [[ "$1" != "public" && "$1" != "private" ]]; then
+		echo "usage: gitnewrepo [public | private]"
+		exit(1)
+	fi
+	curl -L https://raw.githubusercontent.com/Tsuyopon-1067/git-create-repository-script/main/git-command.sh | bash -s -- --$1
+}

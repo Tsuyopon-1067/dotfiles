@@ -10,3 +10,5 @@ rm -rf .config/zellij/
 cp -a ~/.config/zellij/ ./.config/zellij/
 rm -f .p10k.zsh
 cp -a ~/.p10k.zsh ./.p10k.zsh
+rm -rf ./.config/karabiner
+mkdir -p ./.config/karabiner

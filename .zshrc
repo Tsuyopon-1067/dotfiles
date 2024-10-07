@@ -218,10 +218,7 @@ alias seisen='cd ~/gitFiles/atcoder/seisen100'
 alias sekibun='cd ~/OneDrive\ -\ Shizuoka\ University/Documents/ShizuokaUniversity/あそび/今週の積分'
 alias szpp='cd ~/gitFiles/szpp'
 export PATH=$PATH:~/.cargo/bin
-alias shizu22='cd ~/OneDrive\ -\ Shizuoka\ University/Documents/ShizuokaUniversity/41/22-sinri'
-alias shizu24='cd ~/OneDrive\ -\ Shizuoka\ University/Documents/ShizuokaUniversity/41/24-ict'
-alias shizu34='cd ~/OneDrive\ -\ Shizuoka\ University/Documents/ShizuokaUniversity/41/34-データとプログラミング'
-alias shizu52='cd ~/OneDrive\ -\ Shizuoka\ University/Documents/ShizuokaUniversity/41/52-kokosin'
+alias shizu='cd ~/OneDrive\ -\ Shizuoka\ University/Documents/ShizuokaUniversity/42'
 
 gggit()
 {

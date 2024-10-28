@@ -31,6 +31,12 @@
                     "rust"
                 ],
                 "path": "./rust.json"
+            },
+            {
+                "language": [
+                    "typescriptreact"
+                ],
+                "path": "./typescriptreact.json"
             }
         ]
     }

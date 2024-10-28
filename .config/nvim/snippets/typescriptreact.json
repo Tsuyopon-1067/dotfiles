@@ -4,7 +4,7 @@
 		"body": [
 			"import styles from \"./$TM_FILENAME_BASE.module.css\";",
 			"",
-			"function $TM_FILENAME_BASE() {",
+			"const $TM_FILENAME_BASE = () => {",
 			"  return (",
 			"    <div>",
 			"      $0",
@@ -16,22 +16,14 @@
 		],
 		"description": "Create function component"
 	},
-	"Allow function component": {
-		"prefix": "alwcmp",
+	"type": {
+		"prefix": "type",
 		"body": [
-			"import styles from \"./$TM_FILENAME_BASE.module.css\";",
-			"",
-			"const $TM_FILENAME_BASE = () => {",
-			"  return (",
-			"    <div>",
-			"      $0",
-			"    </div>",
-			"  );",
-			"}",
-			"",
-			"export default $TM_FILENAME_BASE;"
+			"type ${1:name} = {",
+			"  $0",
+			"}"
 		],
-		"description": "Create allow function component"
+		"description": "Create interface"
 	},
 	"interface": {
 		"prefix": "interface",

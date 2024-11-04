@@ -170,6 +170,7 @@ alias vie='vi e.cpp'
 
 alias dlst='vi ~/Documents/gitFiles/doneList/doneList.txt'
 
+
 re()
 {
 	file=$1
@@ -219,6 +220,7 @@ alias sekibun='cd ~/OneDrive\ -\ Shizuoka\ University/Documents/ShizuokaUniversi
 alias szpp='cd ~/gitFiles/szpp'
 export PATH=$PATH:~/.cargo/bin
 alias shizu='cd ~/OneDrive\ -\ Shizuoka\ University/Documents/ShizuokaUniversity/42'
+alias paper='cd ~/OneDrive\ -\ Shizuoka\ University/Documents/ShizuokaUniversity/42/60-ken/paper/'
 
 gggit()
 {

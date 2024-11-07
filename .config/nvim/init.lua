@@ -84,6 +84,100 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- lsp rename
 vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.rename()<CR>', { desc = 'Rename a name of variable under the cursor.' })
 
+-- error message
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  -- インサートモード中は更新しない
+  update_in_insert = false,
+
+  -- フローティングウィンドウの設定
+  float = {
+    border = 'rounded',
+    source = true,
+    -- ウィンドウの最大幅を設定（画面幅の80%）
+    width = math.min(math.floor(vim.o.columns * 0.8), 100),
+    -- ウィンドウの最大の高さを設定
+    height = math.min(math.floor(vim.o.lines * 0.5), 20),
+    -- テキストを折り返す
+    wrap = true,
+    -- 複数行メッセージの整形
+    format = function(diagnostic)
+      -- 元のフォーマット（source と code を含む）を維持
+      local message = string.format('%s (%s: %s)', diagnostic.message, diagnostic.source or 'unknown', diagnostic.code or '??')
+
+      -- メッセージを指定幅で折り返す
+      local width = math.min(math.floor(vim.o.columns * 0.8), 100)
+      local wrapped_message = {}
+      local current_line = ''
+
+      for word in message:gmatch '%S+' do
+        if #current_line + #word + 1 > width then
+          table.insert(wrapped_message, current_line)
+          current_line = word
+        else
+          if current_line == '' then
+            current_line = word
+          else
+            current_line = current_line .. ' ' .. word
+          end
+        end
+      end
+      if current_line ~= '' then
+        table.insert(wrapped_message, current_line)
+      end
+
+      return table.concat(wrapped_message, '\n')
+    end,
+  },
+
+  -- 仮想テキストの設定
+  virtual_text = {
+    prefix = '●',
+    spacing = 4,
+    -- 元の仮想テキストのフォーマットを維持
+    format = function(diagnostic)
+      local message = string.format('%s (%s: %s)', diagnostic.message, diagnostic.source or 'unknown', diagnostic.code or '??')
+
+      -- 長すぎる場合は省略
+      if #message > 50 then
+        return string.format('%s...', string.sub(message, 1, 47))
+      end
+      return message
+    end,
+  },
+
+  -- サインカラムの設定
+  signs = {
+    priority = 10,
+    text = {
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = '',
+    },
+  },
+
+  -- 重要度でソート
+  severity_sort = true,
+})
+-- diagnostic floating window settings
+vim.diagnostic.config {
+  float = { border = 'rounded' },
+}
+
+-- 診断のハイライト設定
+vim.cmd [[
+  highlight DiagnosticFloatingError guifg=#db4b4b guibg=NONE
+  highlight DiagnosticFloatingWarn guifg=#e0af68 guibg=NONE
+  highlight DiagnosticFloatingInfo guifg=#0db9d7 guibg=NONE
+  highlight DiagnosticFloatingHint guifg=#10B981 guibg=NONE
+]]
+
+-- キーマッピング（オプション）
+vim.keymap.set('n', '<space>df', vim.diagnostic.open_float, { noremap = true, silent = true, desc = 'Open [d]iagnosis [f]loating window' })
+-- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { noremap = true, silent = true })
+-- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { noremap = true, silent = true })
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, { noremap = true, silent = true, desc = 'Open [q]uit diagnostics' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

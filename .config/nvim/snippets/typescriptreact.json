@@ -1,18 +1,29 @@
 {
-	"Function component": {
-		"prefix": "funcomp",
+	"Function component with css module": {
+		"prefix": "funcompcss",
 		"body": [
 			"import styles from \"./$TM_FILENAME_BASE.module.css\";",
 			"",
-			"const $TM_FILENAME_BASE = () => {",
+			"export const $TM_FILENAME_BASE = () => {",
 			"  return (",
 			"    <div>",
 			"      $0",
 			"    </div>",
 			"  );",
-			"}",
-			"",
-			"export default $TM_FILENAME_BASE;"
+			"}"
+		],
+		"description": "Create function component with css module import"
+	},
+	"Function component": {
+		"prefix": "funcomp",
+		"body": [
+			"export const $TM_FILENAME_BASE = () => {",
+			"  return (",
+			"    <div>",
+			"      $0",
+			"    </div>",
+			"  );",
+			"}"
 		],
 		"description": "Create function component"
 	},

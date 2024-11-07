@@ -320,7 +320,7 @@ texinit() {
 			git clone git@github.com:Tsuyopon-1067/tex-template.git && cd tex-template && mv nidan/* ./ && rm -rf normal nidan && cd ..
 			;;
 		*)
-			echo "無効な引数です: $1"
+			echo "usage: texinit [ 1 | 2 }$1"
 			;;
 	esac
 }

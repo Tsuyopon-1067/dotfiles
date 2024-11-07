@@ -1,3 +1,6 @@
+-- use space as a leader key
+vim.api.nvim_set_var('mapleader', ' ')
+
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 -- Make line numbers default
@@ -383,11 +386,11 @@ require('lazy').setup({
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          map('<leader>r', vim.lsp.buf.rename, '[R]ename')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+          map('<leader>c', vim.lsp.buf.code_action, '[C]ode Action')
 
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap.

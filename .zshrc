@@ -292,7 +292,13 @@ oboe() {
 	echo 'w3m'
 }
 
-alias w3mg="w3m https://www.google.com/"
+w3mg() {
+    if [ -z "$1" ]; then
+        w3m "https://www.google.com/"
+    else
+        w3m "https://www.google.com/search?q=$*"
+    fi
+}
 
 gitpon() {
 	git clone git@github.com:tsuyopon-1067/$1.git

@@ -427,6 +427,10 @@ chars = "\u001B|"
 key = "Backslash"
 mods = "Alt|Shift"
 
+[[keyboard.bindings]]
+key = "Space"
+mods = "Alt|Shift"
+action = "ToggleViMode"
 
 [scrolling]
 history = 10000

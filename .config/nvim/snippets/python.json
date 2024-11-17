@@ -146,5 +146,32 @@
             "else:",
             "\tprint('No')"
         ]
+    },
+    "alphabet count": {
+        "prefix": "alphacount",
+        "body": [
+            "${1:count} = {chr(i): 0 for i in range(ord('a'), ord('z') + 1)}"
+        ]
+    },
+    "graph input": {
+        "prefix": "graphinput",
+        "body": [
+            "${1:n}, ${2:m} = map(int, input().split())",
+            "${3:graph} = [[] for _ in range($1+1)]",
+            "for _ in range(m):",
+            "    a, b = map(int, input().split())",
+            "    $3[a].append(b)",
+            "    $3[b].append(a)"
+        ]
+    },
+    "dfs": {
+        "prefix": "dfs",
+        "body": [
+            "def dfs(graph, seen, v):",
+            "    seen[v] = True",
+            "    for next_v in graph[v]:",
+            "        if not seen[next_v]:",
+            "            dfs(graph, seen, next_v)"
+        ]
     }
 }

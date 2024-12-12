@@ -436,7 +436,7 @@ action = "ToggleViMode"
 history = 10000
 multiplier = 3
 
-[shell]
+[terminal.shell]
 #args = ["-l", "-c", "~/bin/zellij attach --index 0"]
 args = ["-l", "-c", "~/bin/zellij"]
 program = "/bin/zsh"

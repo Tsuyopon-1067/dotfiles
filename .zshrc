@@ -252,13 +252,13 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 
-alias python=/usr/bin/python3
+#alias python=/usr/bin/python3
 export PATH=$PATH:~/apache-maven-3.9.5/bin
 
 alias cursor="open /Applications/Cursor.app"
-alias sshohki="ssh seki@192.168.100.150"
 alias codee="/opt/homebrew/bin/code"
 alias ll="ls -l"
+alias gpu="echo kingslanding"
 
 # bun completions
 [ -s "/Users/tsuyopon/.bun/_bun" ] && source "/Users/tsuyopon/.bun/_bun"
@@ -339,3 +339,31 @@ gitnewrepo() {
 	curl -L https://raw.githubusercontent.com/Tsuyopon-1067/git-create-repository-script/main/git-command.sh | bash -s -- --$1
 }
 
+
+alias bonobono="afplay ~/Music/bonobono.mp3"
+amae() {
+	if [ "$1" = "-f" ]; then
+		afplay ~/Music/amaeFull.mp3
+	else
+		afplay ~/Music/amaeShort.mp3
+	fi
+}
+eval "$(rbenv init -)"
+eval "$(rbenv init -)"
+
+source ~/.env
+fetchk() {
+	if [ "$1" = "-a" ]; then
+		scp $KINGSLANDING_USERNAME@kingslanding:$2 $3
+	else
+		scp $KINGSLANDING_USERNAME@kingslanding:~/$1 $2
+	fi
+}
+
+pushk() {
+	if [ "$1" = "-a" ]; then
+		scp $2 $KINGSLANDING_USERNAME@kingslanding:$3
+	else
+		scp $1 $KINGSLANDING_USERNAME@kingslanding:~/$2
+	fi
+}

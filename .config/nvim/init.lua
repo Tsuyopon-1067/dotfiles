@@ -850,9 +850,15 @@ require('lazy').setup({
   },
   {
     'nvim-tree/nvim-tree.lua',
-    config = true,
-    keys = {
-      { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Open or close the tree. Takes an optional path argument.' },
+    config = function()
+      require('nvim-tree').setup {
+        git = {
+          ignore = false,
+        },
+      }
+    end,
+    git = {
+      ignore = false,
     },
   },
   {
@@ -1066,3 +1072,4 @@ require 'config/basic'
 require 'config/key'
 require 'plugins/term-runner'
 require 'plugins/t-term'
+require 'plugins/convert-comma-period'

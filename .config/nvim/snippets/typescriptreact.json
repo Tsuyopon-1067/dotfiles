@@ -59,6 +59,13 @@
 		],
 		"description": "insert className"
 	},
+	"tailwind CSS className": {
+		"prefix": "clst",
+		"body": [
+			"className={\"${1:property}\"}"
+		],
+		"description": "tailwind CSS className"
+	},
 	"useState": {
 		"prefix": "ust",
 		"body": [

@@ -794,6 +794,19 @@ require('lazy').setup({
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    event = {
+      'BufReadPost',
+      'BufNewFile',
+    },
+    cmd = {
+      'TSInstall',
+      'TSUninstall',
+      'TSUpdate',
+      'TSUpdateSync',
+      'TSInstallInfo',
+      'TSInstallSync',
+      'TSInstallFromGrammar',
+    },
     opts = {
       ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
       -- Autoinstall languages that are not installed
@@ -850,6 +863,11 @@ require('lazy').setup({
   },
   {
     'nvim-tree/nvim-tree.lua',
+    cmd = { 'NvimTreeToggle', 'NvimTreeFocus' },
+    keys = {
+      { '<leader>e', '<cmd>NvimTreeToggle<CR>', desc = 'Toggle NvimTree' },
+    },
+    lazy = true,
     config = function()
       require('nvim-tree').setup {
         git = {
@@ -857,16 +875,19 @@ require('lazy').setup({
         },
       }
     end,
-    git = {
-      ignore = false,
-    },
   },
   {
     'github/copilot.vim',
+    event = {
+      'InsertEnter',
+    },
   },
   {
     'dinhhuy258/git.nvim',
     config = true,
+    event = {
+      'InsertEnter',
+    },
   },
   {
     'nvim-lualine/lualine.nvim',
@@ -955,6 +976,7 @@ require('lazy').setup({
     config = function()
       require('git').setup()
     end,
+    event = { 'BufReadPre', 'BufNewFile' },
   },
   {
     'lewis6991/gitsigns.nvim',
@@ -1016,21 +1038,74 @@ require('lazy').setup({
   },
   {
     'windwp/nvim-ts-autotag',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    ft = {
+      'html',
+      'javascript',
+      'typescript',
+      'javascriptreact',
+      'typescriptreact',
+      'svelte',
+      'vue',
+      'tsx',
+      'jsx',
+      'rescript',
+      'xml',
+      'php',
+      'markdown',
+      'astro',
+      'glimmer',
+      'handlebars',
+      'hbs',
+    },
     config = function()
       require('nvim-ts-autotag').setup {
         opts = {
-          -- Defaults
-          enable_close = true, -- Auto close tags
-          enable_rename = true, -- Auto rename pairs of tags
-          enable_close_on_slash = false, -- Auto close on trailing </
+          enable_close = true,
+          enable_rename = true,
+          enable_close_on_slash = false,
         },
-        -- Also override individual filetype configs, these take priority.
-        -- Empty by default, useful if one of the "opts" global settings
-        -- doesn't work well in a specific filetype
         per_filetype = {
           ['html'] = {
             enable_close = false,
           },
+        },
+        filetypes = {
+          'html',
+          'xml',
+          'javascript',
+          'typescript',
+          'javascriptreact',
+          'typescriptreact',
+          'svelte',
+          'vue',
+          'tsx',
+          'jsx',
+          'rescript',
+          'php',
+          'markdown',
+          'astro',
+          'glimmer',
+          'handlebars',
+          'hbs',
+        },
+        skip_tags = {
+          'area',
+          'base',
+          'br',
+          'col',
+          'command',
+          'embed',
+          'hr',
+          'img',
+          'input',
+          'keygen',
+          'link',
+          'meta',
+          'param',
+          'source',
+          'track',
+          'wbr',
         },
       }
     end,

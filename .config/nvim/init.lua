@@ -702,9 +702,10 @@ require('lazy').setup({
             if luasnip.expand_or_jumpable() then
               luasnip.expand_or_jump()
             elseif cmp.visible() then
-              cmp.select_next_item()
-              cmp.select_prev_item()
-              cmp.mapping.confirm { select = true }
+              --cmp.select_next_item()
+              --cmp.select_prev_item()
+              --cmp.mapping.confirm { select = true }
+              cmp.confirm { select = true }
               --luasnip.expand_or_jump()
             else
               fallback()
@@ -794,19 +795,6 @@ require('lazy').setup({
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    event = {
-      'BufReadPost',
-      'BufNewFile',
-    },
-    cmd = {
-      'TSInstall',
-      'TSUninstall',
-      'TSUpdate',
-      'TSUpdateSync',
-      'TSInstallInfo',
-      'TSInstallSync',
-      'TSInstallFromGrammar',
-    },
     opts = {
       ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
       -- Autoinstall languages that are not installed
@@ -878,9 +866,6 @@ require('lazy').setup({
   },
   {
     'github/copilot.vim',
-    event = {
-      'InsertEnter',
-    },
   },
   {
     'dinhhuy258/git.nvim',
@@ -1148,3 +1133,4 @@ require 'config/key'
 require 'plugins/term-runner'
 require 'plugins/t-term'
 require 'plugins/convert-comma-period'
+require 'plugins/venv-reader'

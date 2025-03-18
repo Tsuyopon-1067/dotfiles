@@ -1103,6 +1103,14 @@ require('lazy').setup({
       vim.cmd [[colorscheme deepwhite]]
     end,
   },
+  {
+    'kaarmu/typst.vim',
+    ft = 'typst',
+    lazy = false,
+    config = function()
+      vim.g.typst_pdf_viewer = 'skim'
+    end,
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -1128,9 +1136,10 @@ require('lazy').setup({
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
-require 'config/basic'
-require 'config/key'
-require 'plugins/term-runner'
-require 'plugins/t-term'
-require 'plugins/convert-comma-period'
-require 'plugins/venv-reader'
+require 'config.basic'
+require 'config.key'
+require 'plugins.term-runner'
+require 'plugins.t-term'
+require 'plugins.convert-comma-period'
+require 'plugins.venv-reader'
+require('plugins.google-translate').setup()

@@ -54,6 +54,7 @@ alias vib='vi b.cpp'
 alias vic='vi c.cpp'
 alias vid='vi d.cpp'
 alias vie='vi e.cpp'
+alias l='ls -la'
 
 alias dlst='vi ~/Documents/gitFiles/doneList/doneList.txt'
 
@@ -105,6 +106,7 @@ alias seisen='cd ~/gitFiles/atcoder/seisen100'
 alias sekibun='cd ~/OneDrive\ -\ Shizuoka\ University/Documents/ShizuokaUniversity/あそび/今週の積分'
 alias szpp='cd ~/gitFiles/szpp'
 export PATH=$PATH:~/.cargo/bin
+export PATH=$PATH:~/.local/bin
 
 gggit()
 {
@@ -214,3 +216,4 @@ texinit() {
 
 alias gitnewrepo="curl https://raw.githubusercontent.com/Tsuyopon-1067/git-create-repository-script/main/git-command.sh | sh"
 eval "$(starship init zsh)"
+

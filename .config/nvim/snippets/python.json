@@ -173,5 +173,20 @@
             "        if not seen[next_v]:",
             "            dfs(graph, seen, next_v)"
         ]
+    },
+    "printmat": {
+        "prefix": "printmat",
+        "body": [
+            "def print_matrix(g):",
+            "    for row in g:",
+            "        print(' '.join(map(str, row)))"
+        ]
+    },
+    "write to file": {
+        "prefix": "writefile",
+        "body": [
+            "with open('${1:filjname}', 'w') as f:",
+            "    f.write(${2:contents})"
+        ]
     }
 }

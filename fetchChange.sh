@@ -12,12 +12,12 @@ cp -a ~/.config/alacritty/ ./.config/alacritty/
 rm -rf .config/zellij/
 cp -a ~/.config/zellij/ ./.config/zellij/
 
-rm -f .p10k.zsh
-cp -a ~/.p10k.zsh ./.p10k.zsh
-
 rm -rf ./.config/karabiner
 mkdir -p ./.config/karabiner
 cp -a ~/.config/karabiner/ ./.config/karabiner/
+
+rm ./.config/starship.toml
+cp -a ~/.config/starship.toml ./.config/starship.toml
 
 
 has_brew_option=false

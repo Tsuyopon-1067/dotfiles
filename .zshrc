@@ -132,7 +132,7 @@ export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/ncurses/lib/pkgconfig:$PKG_CONFIG_PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/ncurses/include"
 export LDFLAGS="-L/opt/homebrew/opt/ncurses/lib"
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 export DENO_INSTALL="/Users/tsuyopon/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
@@ -191,14 +191,6 @@ gitpon() {
 	git clone git@github.com:tsuyopon-1067/$1.git
 }
 
-# git-prompt
-source ~/.zsh/git-prompt.sh
-
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWSTASHSTATE=true
-GIT_PS1_SHOWUPSTREAM=auto
-
 setopt PROMPT_SUBST ; PS1='%F{green}%n%f %F{cyan}($(arch))%f: %F{cyan}%~%f %F{red}$(__git_ps1 "(%s)")%f
 %# '
 
@@ -214,6 +206,25 @@ texinit() {
 	fi
 }
 
-alias gitnewrepo="curl https://raw.githubusercontent.com/Tsuyopon-1067/git-create-repository-script/main/git-command.sh | sh"
+function gitnewrepo() {
+    flag=$1
+    if [[ "$flag" != "--public" && "$flag" != "--private" ]]; then
+        echo "Error: The first argument must be either --public or --private."
+        return 1
+    fi
+
+    repository_name=$(basename "$PWD")
+    user_name=$(git config --global user.name)
+    gh repo create $repository_name $flag
+    git init
+    echo "# "$repository_name >> README.md
+    git add README.md
+    git commit -m ":tada: first commit"
+    git branch -M main
+    git remote add origin git@github.com:$user_name/$repository_name.git
+    git push -u origin main
+}
+
 eval "$(starship init zsh)"
 
+export JAVA_HOME=/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home

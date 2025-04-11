@@ -1,7 +1,7 @@
-#$username\
-#[](fg:#DA84CD bg:#F38DA2)\
-#[](fg:#DA84CD bg:#DA84CD)\
 format = """
+[](fg:#DA84CD bg:#DA84CD)\
+$username\
+[](fg:#DA84CD bg:#F38DA2)\
 $os\
 $directory\
 [](fg:#F392B2 bg:#FCA17D)\
@@ -37,7 +37,7 @@ show_always = true
 style_user = "bg:#DA84CD"
 style_root = "bg:#DA84CD"
 format = '[$user ]($style)'
-disabled = true
+disabled = false
 
 # An alternative to the username module which displays a symbol that
 # represents the current operating system

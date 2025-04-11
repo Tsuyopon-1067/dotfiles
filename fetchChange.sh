@@ -19,6 +19,10 @@ cp -a ~/.config/karabiner/ ./.config/karabiner/
 rm ./.config/starship.toml
 cp -a ~/.config/starship.toml ./.config/starship.toml
 
+rm ./.config/fontconfig/fonts.conf
+mkdir -p ./.config/fontconfig
+cp -a ~/.config/fontconfig/fonts.conf ./.config/fontconfig/fonts.conf
+
 
 has_brew_option=false
 for arg in "$@"; do

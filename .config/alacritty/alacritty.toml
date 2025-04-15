@@ -438,7 +438,7 @@ multiplier = 3
 
 [terminal.shell]
 #args = ["-l", "-c", "~/bin/zellij attach --index 0"]
-args = ["-l", "-c", "~/.local/bin/zellij"]
+args = ["-l", "-c", "zellij attach --index 0 --create"]
 program = "/bin/zsh"
 
 [window.dimensions]

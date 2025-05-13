@@ -41,8 +41,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias vim='nvim'
 alias vi='nvim'
-alias tokic='cd ~/Documents/tokinagaraC'
-alias tokij='cd ~/Documents/tokinagaraJava'
 alias nvimrc='nvim ~/.config/nvim/init.vim'
 alias abc='cd ~/gitFiles/atcoder/abc/'
 alias arc='cd ~/gitFiles/atcoder/arc/'
@@ -97,14 +95,10 @@ re()
 			rb $name.$ext;;
 	esac
 }
-alias shizuoka='cd ~/OneDrive\ -\ Shizuoka\ University/Documents/ShizuokaUniversity/'
-alias room='cd ~/Documents/gitFiles/room1067'
 alias zshrc='nvim ~/.zshrc'
-alias adad='cd ~/gitFiles/ad'
-alias apap='cd ~/gitFiles/AntiApple/anti-apple'
 alias seisen='cd ~/gitFiles/atcoder/seisen100'
-alias sekibun='cd ~/OneDrive\ -\ Shizuoka\ University/Documents/ShizuokaUniversity/あそび/今週の積分'
 alias szpp='cd ~/gitFiles/szpp'
+alias paper='cd ~/oneDriveNagoya/documents/nagoyaUniversity/m11/60-ken/paper/'
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:~/.local/bin
 
@@ -228,3 +222,48 @@ function gitnewrepo() {
 eval "$(starship init zsh)"
 
 export JAVA_HOME=/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home
+alias localvislab='echo 'localhost:10443/login' && sshuttle --dns -r vislabForRum 0/0'
+
+function pptx-audio() {
+  if [ $# -ne 1 ]; then
+    echo "使用方法: extract_pptx_audio <pptxファイルを含むディレクトリパス>"
+    return 1
+  fi
+
+  if [ ! -d "$1" ]; then
+    echo "エラー: ディレクトリ '$1' が存在しません"
+    return 1
+  fi
+  
+  local dir="$1"
+  
+  find "$dir" -name "*.pptx" -type f | while read -r pptx_file; do
+    echo "処理中: $pptx_file"
+    
+    filename=$(basename "$pptx_file")
+    filename_noext="${filename%.pptx}"
+    
+    output_dir="$(dirname "$pptx_file")/$filename_noext"
+    mkdir -p "$output_dir"
+    
+    temp_dir=$(mktemp -d)
+    
+    unzip -q "$pptx_file" -d "$temp_dir"
+    
+    if [ -d "$temp_dir/ppt/media" ]; then
+      find "$temp_dir/ppt/media" -type f \( -name "*.mp3" -o -name "*.wav" -o -name "*.m4a" -o -name "*.ogg" -o -name "*.wma" -o -name "*.aac" \) -exec cp {} "$output_dir/" \;
+      
+      audio_count=$(find "$output_dir" -type f | wc -l)
+      if [ "$audio_count" -gt 0 ]; then
+        echo "  抽出完了: $audio_count 個の音声ファイルを '$output_dir' に保存しました"
+      else
+        echo "  音声ファイルが見つかりませんでした"
+        rmdir "$output_dir"
+      fi
+    else
+      echo "  mediaディレクトリが見つかりませんでした"
+      rmdir "$output_dir"
+    fi
+    rm -rf "$temp_dir"
+  done
+}

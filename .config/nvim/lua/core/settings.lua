@@ -7,6 +7,7 @@ vim.o.hidden = true
 vim.o.showcmd = true
 
 -- 表示設定
+vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.cursorline = true
 vim.wo.cursorcolumn = true

@@ -14,7 +14,5 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- LSP関連
 vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.rename()<CR>', { desc = 'Rename variable under cursor' })
-vim.keymap.set('n', '<space>df', vim.diagnostic.open_float,
-  { noremap = true, silent = true, desc = 'Open diagnostic floating window' })
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist,
-  { noremap = true, silent = true, desc = 'Open diagnostics list' })
+vim.keymap.set('n', '<space>df', vim.diagnostic.open_float, { noremap = true, silent = true, desc = 'Open diagnostic floating window' })
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, { noremap = true, silent = true, desc = 'Open diagnostics list' })

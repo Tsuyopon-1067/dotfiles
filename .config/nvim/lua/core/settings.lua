@@ -29,6 +29,10 @@ vim.o.incsearch = true
 vim.o.wrapscan = true
 vim.o.hlsearch = true
 
+-- undoを永続化する設定
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.expand '~/.config/nvim/undo'
+
 -- クリップボード設定
 vim.o.clipboard = 'unnamed,unnamedplus'
 

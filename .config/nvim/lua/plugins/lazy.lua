@@ -10,43 +10,56 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim', opts = {} },
 
   -- UI関連プラグイン
-  require('plugins.lualine'),
-  require('plugins.nvim-tree'),
-  require('plugins.telescope'),
-  require('plugins.which-key'),
+  require 'plugins.lualine',
+  require 'plugins.nvim-tree',
+  require 'plugins.telescope',
+  require 'plugins.which-key',
+  require 'plugins.nvim-notify',
+  require 'plugins.noice-nvim',
 
   -- 編集支援
-  require('plugins.autopairs'),
-  require('plugins.nvim-autopairs'),
-  require('plugins.treesitter'),
-  require('plugins.nvim-ts-autotag'),
+  require 'plugins.autopairs',
+  require 'plugins.nvim-autopairs',
+  require 'plugins.treesitter',
+  require 'plugins.nvim-ts-autotag',
 
   -- LSP関連
-  require('plugins.lsp-config'),
-  require('plugins.conform'),
-  require('plugins.copilot'),
-  require('plugins.copilot-chat'),
-  require('plugins.nvim-cmp'),
+  require 'plugins.lsp-config',
+  require 'plugins.conform',
+  require 'plugins.copilot',
+  require 'plugins.copilot-chat',
+  require 'plugins.nvim-cmp',
 
   -- Git関連
-  require('plugins.git'),
-  require('plugins.gitsigns'),
+  require 'plugins.git',
+  require 'plugins.gitsigns',
 
   -- ユーティリティ
-  require('plugins.todo-comments'),
-  require('plugins.mini'),
+  require 'plugins.todo-comments',
+  require 'plugins.mini',
+  require 'plugins.remote-nvim',
 
   -- カラースキーム
-  require('plugins.deepwhite'),
+  require 'plugins.deepwhite',
 
   -- ファイルタイプ固有
-  require('plugins.typst')
+  require 'plugins.typst',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘', config = '🛠', event = '📅', ft = '📂',
-      init = '⚙', keys = '🗝', plugin = '🔌', runtime = '💻',
-      require = '🌙', source = '📄', start = '🚀', task = '📌', lazy = '💤 '
-    }
-  }
+      cmd = '⌘',
+      config = '🛠',
+      event = '📅',
+      ft = '📂',
+      init = '⚙',
+      keys = '🗝',
+      plugin = '🔌',
+      runtime = '💻',
+      require = '🌙',
+      source = '📄',
+      start = '🚀',
+      task = '📌',
+      lazy = '💤 ',
+    },
+  },
 })
